@@ -1,36 +1,44 @@
 package burger_shop;
 
-import java.text.DecimalFormat;
-import java.util.HashMap;
-
 public class Main {
-
-    private static DecimalFormat priceFormat = new DecimalFormat("##0.00");
 
     public static void main(String[] args) {
         //main execution of the burger shop goes here.  This is the "entry point" of your application
-        Burger hamburger = new Burger("Plain", "Beef", "Wheat");
-        hamburger.addBurgerTopping1("Bacon", 1.00);
-        hamburger.addBurgerTopping2("Ranch", .20);
-        System.out.println("Plain burger price: $" + priceFormat.format(hamburger.plainBurgerPrice()));
-        System.out.println("Total price after toppings: $" + priceFormat.format(hamburger.totalBurgerPrice()));
+        Burger hamburger = new Burger("Beef", Bread.Wheat);
+        hamburger.printPlainBurgerPrice();
+        hamburger.addToppings(Toppings.Cheese);
+        hamburger.addToppings(Toppings.Pickles);
+        hamburger.addToppings(Toppings.Carrots); // 3rd topping, will not add
+        hamburger.addToppings(Toppings.Tomatoes); // 4th topping, will not add
+        hamburger.totalBurgerPrice();
 
-        DeluxeBurger deluxeBurger = new DeluxeBurger("White");
-        deluxeBurger.addBurgerTopping1("Bacon", 1.00);
-        deluxeBurger.addBurgerTopping2("top2", .25);
-        deluxeBurger.addBurgerTopping3("top3", .3);
-        deluxeBurger.addBurgerTopping4("top4", .15);
-        deluxeBurger.addBurgerTopping5("top5", .90);
-        deluxeBurger.addBurgerTopping6("lastTopp", .87);
-        System.out.println("Deluxe Buger price: $" + priceFormat.format(deluxeBurger.plainBurgerPrice()));
-        System.out.println("Total price after toppings: $" + priceFormat.format(deluxeBurger.totalBurgerPrice()));
+        DeluxeBurger deluxeBurger = new DeluxeBurger("Steak", Bread.White);
+        deluxeBurger.printPlainBurgerPrice();
+        deluxeBurger.addToppings(Toppings.Bacon);
+        deluxeBurger.addToppings(Toppings.Egg);
+        deluxeBurger.addToppings(Toppings.Guacamole);
+        deluxeBurger.addToppings(Toppings.Lettuce);
+        deluxeBurger.addToppings(Toppings.Ketchup);
+        deluxeBurger.addToppings(Toppings.Mustard);
+        deluxeBurger.addToppings(Toppings.Mayonnaise); // 7th topping, will not add
+        deluxeBurger.totalBurgerPrice();
 
         HealthBurger healthy = new HealthBurger("Chicken");
-        healthy.addHealthyTopping1("Lettuce", .25);
-        healthy.addHealthyTopping2("Tomatoes", .15);
-        healthy.addHealthyTopping3("Egg", 1.25);
-        healthy.addHealthyTopping4("Pickles", .15);
-        System.out.println("Healthy Buger price: $" + priceFormat.format(healthy.plainBurgerPrice()));
-        System.out.println("Total after toppings: $" + priceFormat.format(healthy.totalBurgerPrice()));
+        healthy.printPlainBurgerPrice();
+        healthy.addToppings(Toppings.Lettuce);
+        healthy.addToppings(Toppings.Carrots);
+        healthy.addToppings(Toppings.Guacamole);
+        healthy.addToppings(Toppings.Relish);
+        healthy.addToppings(Toppings.Cheese); // 5th topping, will not add
+        healthy.totalBurgerPrice();
+
+        Meal myMeal = new Meal();
+        myMeal.printPlainMealPrice();
+
+        Meal secondMeal = new Meal(Burger.Health, Side.ApplePie, Drink.MountainDew);
+        secondMeal.printPlainMealPrice();
+
+        Meal thirdMeal = new Meal(Burger.Deluxe, Side.IceCream, Drink.DrPepper);
+        thirdMeal.printPlainMealPrice();
     }
 }
