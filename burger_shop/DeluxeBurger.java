@@ -6,7 +6,7 @@ public class DeluxeBurger extends Burger {
 
     private static DecimalFormat priceFormat = new DecimalFormat("##0.00");
 
-    public DeluxeBurger(String meat, Bread breadRollType) {
+    public DeluxeBurger(Meat meat, Bread breadRollType) {
         super(meat, breadRollType);
         this.setBurgerName("Deluxe");
         this.setBurgerPrice(4.99);

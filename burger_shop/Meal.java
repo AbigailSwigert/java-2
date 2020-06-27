@@ -9,13 +9,17 @@ public class Meal {
     Burger mealBurger;
     Side mealSide;
     Drink mealDrink;
-    private final ArrayList<Side> sidesList;
+    public final ArrayList<Side> sidesList;
     private double mealPrice;
+
+    public static final Meal Plain = new Meal();
+    public static final Meal Deluxe = new Meal(Burger.Deluxe, Side.IceCream, Drink.DrPepper);
+    public static final Meal Health = new Meal(Burger.Health, Side.AppleSlices, Drink.Water);
 
     private static final DecimalFormat priceFormat = new DecimalFormat("##0.00");
 
     public Meal() {
-        this.mealBurger = new Burger("Beef", Bread.White);
+        this.mealBurger = Burger.Plain;
         this.mealSide = Side.Fries;
         this.mealDrink = Drink.Water;
         this.sidesList = new ArrayList<>(Collections.singletonList(mealSide));
@@ -60,13 +64,16 @@ public class Meal {
         return this.mealBurger.plainBurgerPrice() + this.mealSide.getSidePrice() + this.mealDrink.getDrinkPrice();
     }
 
-    public void addSide(Side newSide) {
-        if(this.sidesList.contains(newSide)) {
-            System.out.println(newSide + " has already been added to this meal, please pick a new side.");
-        } else if(this.sidesList.size() >= 3) {
-            System.out.println("You may only add 3 sides to a meal.");
-        } else {
-            sidesList.add(newSide);
+    public void addSide(Side ... newSide) {
+        for(Side s: newSide) {
+            if(this.sidesList.contains(s)) {
+                System.out.println(s.getSideName() + " has already been added to this meal, please pick a new side.");
+            } else if(this.sidesList.size() >= 3) {
+                System.out.println("You may only add 3 sides to a meal, " + s.getSideName() + " not added.");
+            } else {
+                System.out.println("Added " + s.getSideName() + " for an extra $" + priceFormat.format(s.getSidePrice()));
+                sidesList.add(s);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ public class HealthBurger extends Burger {
 
     private String[] healthyToppings = {"Lettuce", "Tomatoes", "Carrots", "Guacamole", "Pickles"};
 
-    public HealthBurger(String meat) {
+    public HealthBurger(Meat meat) {
         super( meat, Bread.Lettuce);
         this.setBurgerName("Healthy");
         this.setBurgerPrice(4.50);
@@ -16,12 +16,13 @@ public class HealthBurger extends Burger {
     }
 
     @Override
-    public void addToppings(Toppings topping) {
-        if(topping.isHealthy()) {
-            super.addToppings(topping);
-        } else {
-            System.out.println(topping.getToppingName() + " is not healthy and cannot be ordered on the Healthy " +
-                    "Burger.");
+    public void addToppings(Topping ... topping) {
+        for(Topping t: topping){
+            if(t.isHealthy()) {
+                super.addToppings(topping);
+            } else {
+                System.out.println(t.getToppingName() + " is not healthy and cannot be ordered on the Healthy Burger.");
+            }
         }
     }
 }
