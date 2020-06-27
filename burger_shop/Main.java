@@ -33,12 +33,15 @@ public class Main {
         healthy.totalBurgerPrice();
 
         Meal myMeal = new Meal();
+        myMeal.changeBurger(Burger.Health);
         myMeal.printPlainMealPrice();
 
         Meal secondMeal = new Meal(Burger.Health, Side.ApplePie, Drink.MountainDew);
+        secondMeal.changeDrink(Drink.Gatorade);
         secondMeal.printPlainMealPrice();
 
         Meal thirdMeal = new Meal(Burger.Deluxe, Side.IceCream, Drink.DrPepper);
+        thirdMeal.addSide(Side.Chips);
         thirdMeal.printPlainMealPrice();
     }
 }

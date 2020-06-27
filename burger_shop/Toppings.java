@@ -1,9 +1,9 @@
 package burger_shop;
 
 public class Toppings {
-    private String toppingName;
-    private double toppingPrice;
-    private boolean isHealthy;
+    private final String toppingName;
+    private final double toppingPrice;
+    private final boolean isHealthy;
     public static final Toppings Lettuce = new Toppings("lettuce", 0.27, true);
     public static final Toppings Tomatoes = new Toppings("tomatoes", 0.15, true);
     public static final Toppings Carrots = new Toppings("carrots", 0.27, true);

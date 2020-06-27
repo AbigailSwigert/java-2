@@ -1,7 +1,7 @@
 package burger_shop;
 
 public class Bread {
-    private String breadType;
+    private final String breadType;
 
     public static final Bread Rye = new Bread("brown rye");
     public static final Bread White = new Bread("white");

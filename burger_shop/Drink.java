@@ -1,8 +1,8 @@
 package burger_shop;
 
 public class Drink {
-    private String drinkName;
-    private double drinkPrice;
+    private final String drinkName;
+    private final double drinkPrice;
 
     public static final Drink Water = new Drink("water", 0.50);
     public static final Drink Gatorade = new Drink("Gatorade", 0.50);
