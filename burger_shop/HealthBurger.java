@@ -1,12 +1,6 @@
 package burger_shop;
 
-import java.text.DecimalFormat;
-
 public class HealthBurger extends Burger {
-
-    private static DecimalFormat priceFormat = new DecimalFormat("##0.00");
-
-    private String[] healthyToppings = {"Lettuce", "Tomatoes", "Carrots", "Guacamole", "Pickles"};
 
     public HealthBurger(Meat meat) {
         super( meat, Bread.Lettuce);

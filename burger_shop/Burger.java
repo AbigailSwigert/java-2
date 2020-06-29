@@ -3,7 +3,7 @@ package burger_shop;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class Burger {
+class Burger {
 
     public static final Burger Plain = new Burger(Meat.Beef, Bread.White);
     public static final Burger Deluxe = new DeluxeBurger(Meat.Steak, Bread.Wheat);

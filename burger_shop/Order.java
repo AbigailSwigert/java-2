@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Order {
-    private Burger orderBurger;
+    private final Burger orderBurger;
     private final ArrayList<Topping> toppingsList;
     private final ArrayList<Side> sidesList;
     private final ArrayList<Burger> burgersList;

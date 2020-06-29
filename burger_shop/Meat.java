@@ -1,7 +1,7 @@
 package burger_shop;
 
 public class Meat {
-    private String meatName;
+    private final String meatName;
 
     public static final Meat Beef = new Meat("beef");
     public static final Meat Chicken = new Meat("chicken");
